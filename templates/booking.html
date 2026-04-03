@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Complete Booking - Hotel Reservation{% endblock %}
+
+{% block content %}
+<div class="booking-container">
+    <h2>Complete Your Booking</h2>
+
+    <div class="booking-summary">
+        <h3>Booking Summary</h3>
+        <div class="summary-item">
+            <span class="label">Room Type:</span>
+            <span class="value">{{ room_type }}</span>
+        </div>
+        <div class="summary-item">
+            <span class="label">Check-in:</span>
+            <span class="value">{{ check_in }}</span>
+        </div>
+        <div class="summary-item">
+            <span class="label">Check-out:</span>
+            <span class="value">{{ check_out }}</span>
+        </div>
+        <div class="summary-item">
+            <span class="label">Number of Nights:</span>
+            <span class="value">{{ nights }}</span>
+        </div>
+        <div class="summary-item">
+            <span class="label">Number of Rooms:</span>
+            <span class="value">{{ quantity }}</span>
+        </div>
+        <div class="summary-item">
+            <span class="label">Price per Night:</span>
+            <span class="value">${{ price_per_night }}</span>
+        </div>
+        <div class="summary-item total">
+            <span class="label">Total Cost:</span>
+            <span class="value">${{ "%.2f"|format(total_cost) }}</span>
+        </div>
+    </div>
+
+    <form method="POST" action="/booking" class="booking-form">
+        <input type="hidden" name="check_in" value="{{ check_in }}">
+        <input type="hidden" name="check_out" value="{{ check_out }}">
+        <input type="hidden" name="room_type" value="{{ room_type }}">
+        <input type="hidden" name="quantity" value="{{ quantity }}">
+
+        <div class="form-group">
+            <label for="guest_name">Full Name *</label>
+            <input 
+                type="text" 
+                id="guest_name" 
+                name="guest_name" 
+                required 
+                placeholder="John Doe"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="guest_email">Email Address *</label>
+            <input 
+                type="email" 
+                id="guest_email" 
+                name="guest_email" 
+                required 
+                placeholder="john@example.com"
+            >
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-large">Confirm Booking</button>
+    </form>
+
+    <div class="back-link">
+        <a href="/" class="btn btn-secondary">← Back to Search</a>
+    </div>
+
+    <div class="info-box">
+        <p><strong>Note:</strong> You will receive a confirmation email with your booking reference number. Keep it safe in case you need to cancel.</p>
+    </div>
+</div>
+{% endblock %}

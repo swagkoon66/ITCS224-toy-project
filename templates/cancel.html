@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Cancel Booking - Hotel Reservation{% endblock %}
+
+{% block content %}
+<div class="cancel-container">
+    <h2>Cancel Your Booking</h2>
+
+    {% if success %}
+    <div class="success-box">
+        <h3>✓ Booking Cancelled</h3>
+        <p>Your booking has been successfully cancelled.</p>
+        <div class="cancel-details">
+            <p><strong>Reference Number:</strong> {{ reference }}</p>
+            <p><strong>Guest Name:</strong> {{ guest_name }}</p>
+        </div>
+        <p class="info">A cancellation confirmation has been sent to your email.</p>
+    </div>
+
+    <div class="action-buttons">
+        <a href="/" class="btn btn-primary btn-large">Make a New Booking</a>
+    </div>
+    {% else %}
+    {% if error %}
+    <div class="alert alert-error">
+        <strong>Error:</strong> {{ error }}
+    </div>
+    {% endif %}
+
+    <div class="cancel-form-box">
+        <p class="instruction">Enter your booking reference number to cancel your reservation.</p>
+        
+        <form method="POST" action="/cancel" class="cancel-form">
+            <div class="form-group">
+                <label for="reference">Booking Reference Number</label>
+                <input 
+                    type="text" 
+                    id="reference" 
+                    name="reference" 
+                    placeholder="e.g., REF-A1B2C3D4"
+                    required
+                    maxlength="20"
+                >
+                <small>You can find this number in your confirmation email</small>
+            </div>
+
+            <button type="submit" class="btn btn-danger btn-large">Cancel Booking</button>
+        </form>
+
+        <div class="info-box">
+            <h4>Before You Cancel</h4>
+            <ul>
+                <li>Cancellation is permanent and cannot be undone</li>
+                <li>Your booking will be removed from our system</li>
+                <li>You will receive a cancellation confirmation by email</li>
+                <li>Refund (if applicable) will be processed according to our policy</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="back-link">
+        <a href="/" class="btn btn-secondary">← Back Home</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

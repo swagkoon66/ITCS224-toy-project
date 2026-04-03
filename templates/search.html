@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Search Rooms - Hotel Reservation{% endblock %}
+
+{% block content %}
+<div class="search-container">
+    <h2>Find Your Perfect Room</h2>
+    
+    {% if error %}
+    <div class="alert alert-error">
+        <strong>Error:</strong> {{ error }}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="/search" class="search-form">
+        <div class="form-group">
+            <label for="check_in">Check-in Date</label>
+            <input 
+                type="date" 
+                id="check_in" 
+                name="check_in" 
+                required
+                min="{{ today }}"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="check_out">Check-out Date</label>
+            <input 
+                type="date" 
+                id="check_out" 
+                name="check_out" 
+                required
+                min="{{ tomorrow }}"
+            >
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-large">Search Rooms</button>
+    </form>
+
+    <div class="info-section">
+        <h3>Why Book With Us?</h3>
+        <ul>
+            <li>✓ Instant confirmation</li>
+            <li>✓ No booking fees</li>
+            <li>✓ Free cancellation</li>
+            <li>✓ Mobile-friendly booking</li>
+        </ul>
+    </div>
+
+    <div class="info-section">
+        <h3>Our Rooms</h3>
+        <div class="room-info">
+            <div class="room-type">
+                <strong>Standard</strong><br>
+                $100 per night
+            </div>
+            <div class="room-type">
+                <strong>Deluxe</strong><br>
+                $150 per night
+            </div>
+            <div class="room-type">
+                <strong>Suite</strong><br>
+                $200 per night
+            </div>
+        </div>
+    </div>
+
+    <div class="cancel-link">
+        <p>Have a booking? <a href="/cancel">Cancel here</a></p>
+    </div>
+</div>
+
+<script>
+    // Set minimum dates to today and tomorrow
+    const today = new Date().toISOString().split('T')[0];
+    const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+    document.getElementById('check_in').min = today;
+    document.getElementById('check_out').min = tomorrow;
+</script>
+{% endblock %}

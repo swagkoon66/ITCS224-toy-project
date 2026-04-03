@@ -1,0 +1,147 @@
+{
+  "bookings": [
+    {
+      "reference": "REF-FEF16143",
+      "guest_name": "Test User 2",
+      "guest_email": "test2@example.com",
+      "check_in": "2026-04-08",
+      "check_out": "2026-04-10",
+      "room_type": "Suite",
+      "quantity": 1,
+      "total_cost": 400,
+      "created_at": "2026-04-03T15:04:52.645223"
+    },
+    {
+      "reference": "REF-7B81FF91",
+      "guest_name": "kkk",
+      "guest_email": "kkk@kkk.kkk",
+      "check_in": "2026-04-16",
+      "check_out": "2026-04-17",
+      "room_type": "Standard",
+      "quantity": 5,
+      "total_cost": 500,
+      "created_at": "2026-04-03T15:07:08.307728"
+    },
+    {
+      "reference": "REF-55153221",
+      "guest_name": "John Doe",
+      "guest_email": "missing@domain",
+      "check_in": "2026-04-23",
+      "check_out": "2026-04-25",
+      "room_type": "Standard",
+      "quantity": 1,
+      "total_cost": 200,
+      "created_at": "2026-04-03T15:37:17.776607"
+    },
+    {
+      "reference": "REF-AE9DEAE1",
+      "guest_name": "John Doe",
+      "guest_email": "@nodomain.com",
+      "check_in": "2026-04-23",
+      "check_out": "2026-04-25",
+      "room_type": "Standard",
+      "quantity": 1,
+      "total_cost": 200,
+      "created_at": "2026-04-03T15:37:17.794284"
+    },
+    {
+      "reference": "REF-CA864DB3",
+      "guest_name": "John Doe",
+      "guest_email": "spaces in@email.com",
+      "check_in": "2026-04-23",
+      "check_out": "2026-04-25",
+      "room_type": "Standard",
+      "quantity": 1,
+      "total_cost": 200,
+      "created_at": "2026-04-03T15:37:17.825396"
+    },
+    {
+      "reference": "REF-886953FE",
+      "guest_name": "John Doe",
+      "guest_email": "john@example.com",
+      "check_in": "2026-04-23",
+      "check_out": "2026-04-25",
+      "room_type": "Standard",
+      "quantity": 1,
+      "total_cost": 200,
+      "created_at": "2026-04-03T15:37:17.854838"
+    },
+    {
+      "reference": "REF-F2C50E16",
+      "guest_name": "John Doe",
+      "guest_email": "user+tag@domain.co.uk",
+      "check_in": "2026-04-23",
+      "check_out": "2026-04-25",
+      "room_type": "Standard",
+      "quantity": 1,
+      "total_cost": 200,
+      "created_at": "2026-04-03T15:37:17.867135"
+    },
+    {
+      "reference": "REF-E4381296",
+      "guest_name": "User 1",
+      "guest_email": "user1@test.com",
+      "check_in": "2026-05-03",
+      "check_out": "2026-05-05",
+      "room_type": "Standard",
+      "quantity": 2,
+      "total_cost": 400,
+      "created_at": "2026-04-03T15:37:17.999908"
+    },
+    {
+      "reference": "REF-A4F7E90F",
+      "guest_name": "User 2",
+      "guest_email": "user2@test.com",
+      "check_in": "2026-05-03",
+      "check_out": "2026-05-05",
+      "room_type": "Standard",
+      "quantity": 2,
+      "total_cost": 400,
+      "created_at": "2026-04-03T15:37:18.509102"
+    },
+    {
+      "reference": "REF-CF57679F",
+      "guest_name": "John Smith",
+      "guest_email": "john@test.com",
+      "check_in": "2026-05-13",
+      "check_out": "2026-05-15",
+      "room_type": "Standard",
+      "quantity": 1,
+      "total_cost": 200,
+      "created_at": "2026-04-03T15:40:43.077959"
+    },
+    {
+      "reference": "REF-F51DFD1D",
+      "guest_name": "John Smith",
+      "guest_email": "john@test.com",
+      "check_in": "2026-05-13",
+      "check_out": "2026-05-15",
+      "room_type": "Standard",
+      "quantity": 1,
+      "total_cost": 200,
+      "created_at": "2026-04-03T15:41:26.651677"
+    },
+    {
+      "reference": "REF-D52ADA35",
+      "guest_name": "Alice Wonder",
+      "guest_email": "alice@test.com",
+      "check_in": "2026-05-23",
+      "check_out": "2026-05-25",
+      "room_type": "Deluxe",
+      "quantity": 1,
+      "total_cost": 300,
+      "created_at": "2026-04-03T15:41:41.398500"
+    },
+    {
+      "reference": "REF-5FDB8949",
+      "guest_name": "Alice Wonder",
+      "guest_email": "alice@test.com",
+      "check_in": "2026-05-23",
+      "check_out": "2026-05-25",
+      "room_type": "Deluxe",
+      "quantity": 1,
+      "total_cost": 300,
+      "created_at": "2026-04-03T15:41:52.212168"
+    }
+  ]
+}

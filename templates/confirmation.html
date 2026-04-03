@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Booking Confirmation - Hotel Reservation{% endblock %}
+
+{% block content %}
+<div class="confirmation-container">
+    {% if error %}
+    <div class="alert alert-error">
+        <strong>Error:</strong> {{ error }}
+    </div>
+    <div class="back-link">
+        <a href="/" class="btn btn-primary">← Return Home</a>
+    </div>
+    {% else %}
+    <div class="success-box">
+        <h2>✓ Booking Confirmed!</h2>
+        <p>Thank you for your reservation. Your booking has been confirmed.</p>
+    </div>
+
+    <div class="reference-box">
+        <p class="label">Your Reference Number</p>
+        <p class="reference">{{ booking.reference }}</p>
+        <p class="info">Save this number for your records and cancellations</p>
+    </div>
+
+    <div class="booking-details">
+        <h3>Booking Details</h3>
+        
+        <div class="details-section">
+            <h4>Guest Information</h4>
+            <div class="detail-item">
+                <span class="label">Name:</span>
+                <span class="value">{{ booking.guest_name }}</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Email:</span>
+                <span class="value">{{ booking.guest_email }}</span>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h4>Room & Dates</h4>
+            <div class="detail-item">
+                <span class="label">Room Type:</span>
+                <span class="value">{{ booking.room_type }}</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Number of Rooms:</span>
+                <span class="value">{{ booking.quantity }}</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Check-in:</span>
+                <span class="value">{{ booking.check_in }}</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Check-out:</span>
+                <span class="value">{{ booking.check_out }}</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Number of Nights:</span>
+                <span class="value">{{ nights }}</span>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h4>Cost Summary</h4>
+            <div class="detail-item total">
+                <span class="label">Total Cost:</span>
+                <span class="value">${{ "%.2f"|format(booking.total_cost) }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <a href="/" class="btn btn-primary btn-large">Make Another Booking</a>
+        <a href="/cancel" class="btn btn-danger">Cancel This Booking</a>
+    </div>
+
+    <div class="info-box">
+        <h4>What's Next?</h4>
+        <ul>
+            <li>A confirmation email has been sent to {{ booking.guest_email }}</li>
+            <li>Check-in opens at 3:00 PM on {{ booking.check_in }}</li>
+            <li>Save your reference number for check-in and any inquiries</li>
+            <li>For questions, please contact our front desk</li>
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

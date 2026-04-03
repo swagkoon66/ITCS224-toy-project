@@ -1,0 +1,753 @@
+/* ============================================================================
+   Hotel Reservation App - Mobile-First Responsive Stylesheet
+   ============================================================================
+   Design Principles:
+   - Mobile-first: styles start for mobile, scale up for larger screens
+   - Accessibility: large touch targets (44px+), readable text (16px base)
+   - Colors: white background, blue (#0066CC) accent, soft grays
+   ========================================================================== */
+
+/* ============================================================================
+   Reset & Base Styles
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #0066CC;
+    --dark-blue: #0052A3;
+    --light-gray: #F5F5F5;
+    --border-gray: #E0E0E0;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --error-red: #D32F2F;
+    --success-green: #388E3C;
+    --spacing-unit: 1rem;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    background-color: white;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ============================================================================
+   Layout
+   ========================================================================== */
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+header {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+header h1 a:hover {
+    text-decoration: underline;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+main {
+    padding: 1.5rem 0;
+    min-height: 60vh;
+}
+
+footer {
+    background-color: var(--light-gray);
+    color: var(--text-light);
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-gray);
+    margin-top: 2rem;
+}
+
+/* ============================================================================
+   Typography
+   ========================================================================== */
+
+h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================================
+   Forms
+   ========================================================================== */
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 0.875rem;
+    border: 1px solid var(--border-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: white;
+    color: var(--text-dark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+small {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* ============================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-large {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    min-height: 50px;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-blue);
+    text-decoration: none;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+    border: 1px solid var(--border-gray);
+}
+
+.btn-secondary:hover {
+    background-color: #EEEEEE;
+    text-decoration: none;
+}
+
+.btn-danger {
+    background-color: var(--error-red);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #B71C1C;
+    text-decoration: none;
+}
+
+/* ============================================================================
+   Alerts & Info Boxes
+   ========================================================================== */
+
+.alert {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid;
+}
+
+.alert-error {
+    background-color: #FFEBEE;
+    border-color: var(--error-red);
+    color: #C62828;
+}
+
+.alert strong {
+    font-weight: 700;
+}
+
+.info-box {
+    background-color: var(--light-gray);
+    padding: 1.25rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.info-box h4 {
+    margin-top: 0;
+    color: var(--primary-blue);
+}
+
+.info-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-box li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.info-box li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-green);
+    font-weight: bold;
+}
+
+/* ============================================================================
+   Success Box
+   ========================================================================== */
+
+.success-box {
+    background-color: #E8F5E9;
+    border: 1px solid var(--success-green);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.success-box h2,
+.success-box h3 {
+    color: var(--success-green);
+    margin-top: 0;
+}
+
+/* ============================================================================
+   Reference Box
+   ========================================================================== */
+
+.reference-box {
+    background-color: var(--light-gray);
+    border: 2px solid var(--primary-blue);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.reference-box .label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.reference-box .reference {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-family: "Courier New", monospace;
+    letter-spacing: 2px;
+    margin: 1rem 0;
+    word-break: break-all;
+}
+
+.reference-box .info {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* ============================================================================
+   Search Form
+   ========================================================================== */
+
+.search-form {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+}
+
+.room-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.room-type {
+    background-color: var(--light-gray);
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    border-left: 4px solid var(--primary-blue);
+}
+
+.room-type strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-blue);
+}
+
+/* ============================================================================
+   Rooms List
+   ========================================================================== */
+
+.room-card {
+    background-color: var(--light-gray);
+    border: 1px solid var(--border-gray);
+    border-radius: 4px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.room-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: var(--primary-blue);
+}
+
+.room-card .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin: 0.5rem 0;
+}
+
+.room-card .total-price {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin: 0.5rem 0;
+}
+
+.room-card .availability {
+    font-size: 0.9rem;
+    color: var(--success-green);
+    font-weight: 600;
+    margin: 0.75rem 0;
+}
+
+.room-select-form {
+    margin-top: 1rem;
+}
+
+/* ============================================================================
+   Dates Summary
+   ========================================================================== */
+
+.dates-summary {
+    background-color: var(--light-gray);
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+}
+
+.dates-summary p {
+    margin: 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.dates-summary strong {
+    color: var(--primary-blue);
+}
+
+/* ============================================================================
+   Booking Summary
+   ========================================================================== */
+
+.booking-summary {
+    background-color: var(--light-gray);
+    padding: 1.25rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+}
+
+.booking-summary h3 {
+    margin-top: 0;
+    color: var(--primary-blue);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-item .label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.summary-item .value {
+    text-align: right;
+    color: var(--text-light);
+}
+
+.summary-item.total {
+    padding: 1rem 0;
+    border-top: 2px solid var(--border-gray);
+    border-bottom: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.summary-item.total .value {
+    color: var(--primary-blue);
+}
+
+/* ============================================================================
+   Booking Details
+   ========================================================================== */
+
+.booking-details {
+    margin: 1.5rem 0;
+}
+
+.details-section {
+    background-color: var(--light-gray);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.details-section h4 {
+    margin-top: 0;
+    color: var(--primary-blue);
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    color: var(--text-light);
+}
+
+.detail-item .label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.detail-item.total {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--border-gray);
+    margin-top: 0.5rem;
+}
+
+.detail-item.total .value {
+    color: var(--primary-blue);
+}
+
+/* ============================================================================
+   Actions & Links
+   ========================================================================== */
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.action-buttons .btn {
+    width: 100%;
+}
+
+.back-link {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.back-link .btn {
+    width: 100%;
+}
+
+.cancel-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-gray);
+}
+
+.cancel-link p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ============================================================================
+   Cancel Form
+   ========================================================================== */
+
+.cancel-form-box {
+    background-color: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+}
+
+.instruction {
+    font-size: 1rem;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.cancel-form {
+    margin-bottom: 1.5rem;
+}
+
+.cancel-details {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.cancel-details p {
+    margin: 0.5rem 0;
+    color: var(--text-dark);
+}
+
+/* ============================================================================
+   Info Section
+   ========================================================================== */
+
+.info-section {
+    background-color: var(--light-gray);
+    padding: 1.25rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+}
+
+.info-section h3 {
+    margin-top: 0;
+    color: var(--primary-blue);
+}
+
+.info-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-section li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.info-section li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ============================================================================
+   Tablet & Desktop Responsive Design
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    :root {
+        font-size: 17px;
+    }
+
+    .container {
+        max-width: 700px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .room-info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .action-buttons {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .action-buttons .btn {
+        flex: 1;
+    }
+
+    .summary-item {
+        padding: 1rem 0;
+    }
+
+    .detail-item {
+        padding: 0.75rem 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 800px;
+    }
+
+    main {
+        min-height: 70vh;
+    }
+
+    .room-card {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.9rem;
+    }
+
+    .booking-summary,
+    .booking-details {
+        margin: 2rem 0;
+    }
+}
+
+/* ============================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    header,
+    footer,
+    .back-link,
+    .action-buttons,
+    .search-form,
+    .room-select-form {
+        display: none;
+    }
+
+    .reference-box {
+        border: 2px solid #000;
+        page-break-inside: avoid;
+    }
+
+    .booking-details {
+        page-break-inside: avoid;
+    }
+}

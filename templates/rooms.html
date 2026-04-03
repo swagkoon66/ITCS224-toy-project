@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Available Rooms - Hotel Reservation{% endblock %}
+
+{% block content %}
+<div class="rooms-container">
+    <h2>Available Rooms</h2>
+    
+    <div class="dates-summary">
+        <p><strong>Check-in:</strong> {{ check_in }}</p>
+        <p><strong>Check-out:</strong> {{ check_out }}</p>
+        <p><strong>Number of Nights:</strong> {{ nights }}</p>
+    </div>
+
+    {% if error %}
+    <div class="alert alert-error">
+        <strong>Error:</strong> {{ error }}
+    </div>
+    {% else %}
+    <div class="rooms-list">
+        {% for room_type, count in available.items() %}
+        {% if count > 0 %}
+        <div class="room-card">
+            <h3>{{ room_type }}</h3>
+            <p class="price">${{ room_types[room_type] }}/night</p>
+            <p class="total-price">Total for {{ nights }} nights: 
+                <strong>${{ room_types[room_type] * nights }}</strong>
+            </p>
+            <p class="availability">{{ count }} room(s) available</p>
+            
+            <form method="GET" action="/booking" class="room-select-form">
+                <input type="hidden" name="check_in" value="{{ check_in }}">
+                <input type="hidden" name="check_out" value="{{ check_out }}">
+                <input type="hidden" name="room_type" value="{{ room_type }}">
+                
+                <div class="form-group">
+                    <label for="quantity_{{ room_type }}">Number of Rooms</label>
+                    <select id="quantity_{{ room_type }}" name="quantity" required>
+                        {% for i in range(1, count + 1) %}
+                        <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    Select {{ room_type }}
+                </button>
+            </form>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="back-link">
+        <a href="/" class="btn btn-secondary">← Back to Search</a>
+    </div>
+</div>
+{% endblock %}
